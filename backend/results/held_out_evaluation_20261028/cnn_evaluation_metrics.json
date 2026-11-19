@@ -1,0 +1,26 @@
+{
+  "model_name": "resnet18_isic2020",
+  "evaluation_source": "untouched patient-disjoint test fold from labeled training metadata",
+  "metadata_member": "ISIC_2020_Dataset/ISIC_2020_Train_Metadata.csv",
+  "test_patient_count": 412,
+  "training_patients_excluded": true,
+  "official_test_metadata_has_labels": false,
+  "accuracy": 0.9816816816816817,
+  "precision": 0.0,
+  "melanoma_sensitivity_recall": 0.0,
+  "specificity": 1.0,
+  "f1_score": 0.0,
+  "roc_auc": 0.8423215602104219,
+  "confusion_matrix": [
+    [
+      6538,
+      0
+    ],
+    [
+      122,
+      0
+    ]
+  ],
+  "positive_examples": 122,
+  "negative_examples": 6538
+}

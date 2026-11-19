@@ -1,0 +1,71 @@
+{
+  "archive_name": "archive.zip",
+  "archive_bytes": 31986385232,
+  "archive_uncompressed_bytes": 33255418012,
+  "free_disk_bytes": 9610842112,
+  "archive_members": 44112,
+  "train_metadata_member": "ISIC_2020_Dataset/ISIC_2020_Train_Metadata.csv",
+  "train_columns": [
+    "image_name",
+    "patient_id",
+    "lesion_id",
+    "sex",
+    "age_approx",
+    "anatom_site_general_challenge",
+    "diagnosis",
+    "benign_malignant",
+    "target"
+  ],
+  "train_records": 33126,
+  "train_image_column": "image_name",
+  "target_column": "target",
+  "target_counts": {
+    "0": 32542,
+    "1": 584
+  },
+  "label_encoding": {
+    "0": "non_melanoma",
+    "1": "melanoma"
+  },
+  "test_metadata_member": "ISIC_2020_Dataset/ISIC_2020_Test_Metadata.csv",
+  "test_columns": [
+    "image",
+    "patient",
+    "age_approx",
+    "anatom_site_general",
+    "sex"
+  ],
+  "test_records": 10982,
+  "test_image_column": "image",
+  "train_images": 33126,
+  "train_image_extensions": {
+    ".jpg": 33126
+  },
+  "test_images": 10982,
+  "test_image_extensions": {
+    ".jpg": 10982
+  },
+  "train_ids_matched": 33126,
+  "test_ids_matched": 10982,
+  "train_missing_image_ids": [],
+  "test_missing_image_ids": [],
+  "train_image_examples": [
+    "ISIC_2020_Dataset/train/ISIC_0015719.jpg",
+    "ISIC_2020_Dataset/train/ISIC_0052212.jpg",
+    "ISIC_2020_Dataset/train/ISIC_0068279.jpg",
+    "ISIC_2020_Dataset/train/ISIC_0074268.jpg",
+    "ISIC_2020_Dataset/train/ISIC_0074311.jpg"
+  ],
+  "test_image_examples": [
+    "ISIC_2020_Dataset/test/ISIC_0052060.jpg",
+    "ISIC_2020_Dataset/test/ISIC_0052349.jpg",
+    "ISIC_2020_Dataset/test/ISIC_0058510.jpg",
+    "ISIC_2020_Dataset/test/ISIC_0073313.jpg",
+    "ISIC_2020_Dataset/test/ISIC_0073502.jpg"
+  ],
+  "patient_column": "patient_id",
+  "unique_train_patients": 2056,
+  "mask_candidates": [],
+  "verified_masks_available": false,
+  "test_labels_available": false
+}

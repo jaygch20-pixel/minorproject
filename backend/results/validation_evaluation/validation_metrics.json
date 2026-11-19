@@ -1,0 +1,321 @@
+{
+  "model_name": "resnet18_isic2020",
+  "evaluation_source": "patient-disjoint validation fold from labeled ISIC2020 training metadata",
+  "generated_at": "2026-11-01T08:18:43.046317+00:00",
+  "checkpoint": {
+    "filename": "resnet18_isic2020.pt",
+    "sha256": "62e237fcf63bde9b6ce1724f6a6dc1e9591d0e761cb06e8d98fc4097db0e86ab",
+    "architecture": "torchvision.models.resnet18",
+    "pretrained_weights": true,
+    "smoke_test": false,
+    "production_best_validation_loss": 0.2368083011698648,
+    "available": true,
+    "training_config_matches_current_split": true,
+    "production_weights_match_latest_resume_checkpoint": true,
+    "latest_resume_epoch": 8,
+    "best_validation_loss": 0.2368083011698648,
+    "training_config": {
+      "seed": 42,
+      "batch_size": 4,
+      "learning_rate": 0.0001,
+      "num_workers": 0,
+      "pretrained_weights": true
+    }
+  },
+  "split": {
+    "metadata_member": "ISIC_2020_Dataset/ISIC_2020_Train_Metadata.csv",
+    "seed": 42,
+    "training_examples": 20423,
+    "validation_examples": 6043,
+    "validation_patients": 411,
+    "training_patients_excluded": true,
+    "held_out_test_patients_excluded": true,
+    "patient_overlap": false,
+    "training_class_counts": {
+      "non_melanoma": 20096,
+      "melanoma": 327
+    },
+    "validation_class_counts": {
+      "non_melanoma": 5908,
+      "melanoma": 135
+    },
+    "label_integrity": {
+      "target_matches_benign_malignant": true,
+      "target_conflicts": 0,
+      "duplicate_image_ids": 0,
+      "conflicting_duplicate_labels": 0
+    }
+  },
+  "label_encoding": {
+    "0": "non_melanoma",
+    "1": "melanoma"
+  },
+  "inference": {
+    "output_type": "two logits converted to class probabilities using softmax",
+    "image_size": [
+      224,
+      224
+    ],
+    "color_space": "RGB",
+    "resize_mode": "aspect-preserving centered resize with ImageNet-mean padding",
+    "normalization": {
+      "mean": [
+        0.48500001430511475,
+        0.4560000002384186,
+        0.4059999883174896
+      ],
+      "std": [
+        0.2290000021457672,
+        0.2240000069141388,
+        0.22499999403953552
+      ]
+    },
+    "hair_reduction": false,
+    "threshold": 0.5
+  },
+  "validation_loss": {
+    "class_weighted_cross_entropy": 0.23680830091090863,
+    "unweighted_cross_entropy": 0.09922094994993493,
+    "training_loss_history_available": false,
+    "note": "The class-weighted loss is reproduced at the recorded training batch size; the production run saved its best validation loss but not per-epoch training-loss history. Weighted mean loss can vary with batch composition.",
+    "class_weighted_cross_entropy_at_evaluation_batch_size": 0.3854076778027626,
+    "training_batch_size": 4,
+    "evaluation_batch_size": 8,
+    "matches_recorded_best_validation_loss": true
+  },
+  "melanoma_probability_by_true_class": {
+    "non_melanoma": {
+      "count": 5908,
+      "mean": 0.04599240215625437,
+      "standard_deviation": 0.04211447215621815,
+      "minimum": 0.00436158524826169,
+      "percentile_10": 0.015778555907309054,
+      "percentile_25": 0.020429071970283985,
+      "median": 0.029577245004475117,
+      "percentile_75": 0.05341239180415869,
+      "percentile_90": 0.10103306248784068,
+      "maximum": 0.39383623003959656,
+      "at_or_above_0_50": 0,
+      "below_0_50": 5908
+    },
+    "melanoma": {
+      "count": 135,
+      "mean": 0.12539454231176664,
+      "standard_deviation": 0.07845509184803147,
+      "minimum": 0.007079827133566141,
+      "percentile_10": 0.032631547003984455,
+      "percentile_25": 0.0605305228382349,
+      "median": 0.11773673444986343,
+      "percentile_75": 0.17583734542131424,
+      "percentile_90": 0.22614028453826912,
+      "maximum": 0.3370825946331024,
+      "at_or_above_0_50": 0,
+      "below_0_50": 135
+    }
+  },
+  "predictions_file": "validation_predictions.csv",
+  "accuracy": 0.9776601025980474,
+  "precision": 0.0,
+  "melanoma_sensitivity_recall": 0.0,
+  "specificity": 1.0,
+  "f1_score": 0.0,
+  "roc_auc": 0.8290497504952481,
+  "confusion_matrix": [
+    [
+      5908,
+      0
+    ],
+    [
+      135,
+      0
+    ]
+  ],
+  "positive_examples": 135,
+  "negative_examples": 5908,
+  "validation_only_threshold_analysis": {
+    "sensitivity_objectives": [
+      0.9,
+      0.95
+    ],
+    "thresholds": {
+      "90%_target_sensitivity": {
+        "threshold": 0.0304859541,
+        "sensitivity": 0.9037037037037037,
+        "specificity": 0.514218009478673,
+        "precision": 0.04077540106951872,
+        "f1_score": 0.0780300607611129,
+        "confusion_matrix": [
+          [
+            3038,
+            2870
+          ],
+          [
+            13,
+            122
+          ]
+        ]
+      },
+      "95%_target_sensitivity": {
+        "threshold": 0.0221805051,
+        "sensitivity": 0.9555555555555556,
+        "specificity": 0.31178063642518616,
+        "precision": 0.030750893921334923,
+        "f1_score": 0.05958429561200924,
+        "confusion_matrix": [
+          [
+            1842,
+            4066
+          ],
+          [
+            6,
+            129
+          ]
+        ]
+      }
+    },
+    "note": "Exploratory thresholds are selected only on this validation fold to illustrate sensitivity/specificity tradeoffs. They are not applied to production predictions and are not clinical recommendations."
+  },
+  "pr_auc_average_precision": 0.16359808625126046,
+  "pr_auc_definition": "Average precision (non-interpolated area under the precision-recall curve)",
+  "fixed_threshold_analysis": {
+    "thresholds": [
+      {
+        "threshold": 0.5,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "precision": 0.0,
+        "f1_score": 0.0,
+        "confusion_matrix": [
+          [
+            5908,
+            0
+          ],
+          [
+            135,
+            0
+          ]
+        ]
+      },
+      {
+        "threshold": 0.3,
+        "sensitivity": 0.022222222222222223,
+        "specificity": 0.9994922139471902,
+        "precision": 0.5,
+        "f1_score": 0.0425531914893617,
+        "confusion_matrix": [
+          [
+            5905,
+            3
+          ],
+          [
+            132,
+            3
+          ]
+        ]
+      },
+      {
+        "threshold": 0.2,
+        "sensitivity": 0.18518518518518517,
+        "specificity": 0.98645903859174,
+        "precision": 0.23809523809523808,
+        "f1_score": 0.20833333333333334,
+        "confusion_matrix": [
+          [
+            5828,
+            80
+          ],
+          [
+            110,
+            25
+          ]
+        ]
+      },
+      {
+        "threshold": 0.1,
+        "sensitivity": 0.5407407407407407,
+        "specificity": 0.8981042654028436,
+        "precision": 0.10814814814814815,
+        "f1_score": 0.18024691358024691,
+        "confusion_matrix": [
+          [
+            5306,
+            602
+          ],
+          [
+            62,
+            73
+          ]
+        ]
+      },
+      {
+        "threshold": 0.05,
+        "sensitivity": 0.7925925925925926,
+        "specificity": 0.7266418415707515,
+        "precision": 0.062137049941927994,
+        "f1_score": 0.11523963381798599,
+        "confusion_matrix": [
+          [
+            4293,
+            1615
+          ],
+          [
+            28,
+            107
+          ]
+        ]
+      },
+      {
+        "threshold": 0.03,
+        "sensitivity": 0.9037037037037037,
+        "specificity": 0.5066012186865267,
+        "precision": 0.040171221600263415,
+        "f1_score": 0.07692307692307693,
+        "confusion_matrix": [
+          [
+            2993,
+            2915
+          ],
+          [
+            13,
+            122
+          ]
+        ]
+      },
+      {
+        "threshold": 0.02,
+        "sensitivity": 0.9555555555555556,
+        "specificity": 0.23713608666215302,
+        "precision": 0.027825711820534945,
+        "f1_score": 0.05407671347725844,
+        "confusion_matrix": [
+          [
+            1401,
+            4507
+          ],
+          [
+            6,
+            129
+          ]
+        ]
+      },
+      {
+        "threshold": 0.01,
+        "sensitivity": 0.9851851851851852,
+        "specificity": 0.013879485443466486,
+        "precision": 0.022319181070649438,
+        "f1_score": 0.04364949130292091,
+        "confusion_matrix": [
+          [
+            82,
+            5826
+          ],
+          [
+            2,
+            133
+          ]
+        ]
+      }
+    ],
+    "note": "These cutoffs are descriptive validation results. Only the separately reported sensitivity-objective threshold is selected on validation; none is applied to production predictions."
+  }
+}

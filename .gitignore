@@ -1,0 +1,14 @@
+node_modules/
+frontend/node_modules/
+backend/.venv/
+backend/data/*.db
+backend/model/*.joblib
+backend/model/*.pkl
+backend/model/*.pt
+backend/model/preprocessing*.json
+backend/results/cnn_evaluation_metrics.json
+backend/results/segmentation_demo/
+__pycache__/
+*.pyc
+.vscode/
+.DS_Store
